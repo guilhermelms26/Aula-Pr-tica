@@ -31,22 +31,19 @@ O projeto adota a seguinte estrutura de pastas recomendada para ambientes de pro
 ```
 
 ###  3.3. Outputs Relevantes
+A aplicação da Inteligência Artificial resultou na redução de percurso e em um balanceamento de carga (entregas justas para cada motorista baseadas em sua zona geográfica).
 
-A aplicação da Inteligência Artificial resultou na redução de percurso e em um balanceamento de carga perfeito (4 entregas justas para cada motorista).
-
-**Output de Console (Logs):**
-
+**Output de Console (Logs de Execução):**
 ```text
 Iniciando Sistema Sabor Express AI...
  Locais de Entrega: [43 38 52 49 33 13 42 16 35 15 54  2]
 
  Agrupamento (Clusters):
-  Motorista 1: 4 entregas -> Nós [49, 13, 16, 54]
-  Motorista 2: 4 entregas -> Nós [43, 38, 33, 42]
-  Motorista 3: 4 entregas -> Nós [52, 35, 15, 2]
+  Motorista 1: 3 entregas -> Nós [...]
+  Motorista 2: 6 entregas -> Nós [...]
+  Motorista 3: 3 entregas -> Nós [...]
 
 Otimização Concluída. Mapa gerado.
-
 ```
 
 **Output Gráfico (Rotas):** *(Imagem de exemplo gerada pela execução contida na pasta `/docs`)*
@@ -77,7 +74,5 @@ python main.py
 
 ---
 
-
 ```
 
-```
