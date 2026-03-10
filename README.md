@@ -72,8 +72,5 @@ python main.py
 
 **3. Visualização:** O script irá imprimir o agrupamento no terminal e, logo em seguida, abrirá uma janela do `matplotlib` renderizando o grafo visualmente com as rotas dos 3 entregadores marcadas por cores diferentes.
 
----
-
-```
 
 
