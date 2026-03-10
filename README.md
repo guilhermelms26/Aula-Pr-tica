@@ -1,41 +1,83 @@
-# 🛵 Rota Inteligente: Otimização de Entregas - Sabor Express
+
+#  Rota Inteligente: Otimização de Entregas - Sabor Express
+
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+![NetworkX](https://img.shields.io/badge/NetworkX-Graph-green)
+![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-Machine%20Learning-orange)
+![License](https://img.shields.io/badge/License-GPLv3-lightgrey)
 
 ## 1. Descrição do Problema
 
 A "Sabor Express" enfrenta ineficiência logística em horários de pico. As rotas manuais geram atrasos e alto custo de combustível. O objetivo deste projeto é desenvolver uma solução baseada em IA para:
 
-1.  Agrupar entregas próximas (Clustering).
-2.  Calcular a rota mais rápida entre os pontos (Pathfinding).
+1.  **Agrupar entregas próximas (Clustering):** Dividir geograficamente as áreas entre os entregadores.
+2.  **Calcular a rota mais rápida (Pathfinding):** Encontrar o menor caminho entre os pontos em sequência.
 
-## 2. Abordagem Adotada
+## 2. Abordagem e Algoritmos Adotados
 
 Consideramos a cidade como um grafo $G(V, E)$, onde $V$ são locais e $E$ são as ruas. A solução é híbrida:
 
-- **Etapa 1 (Estratégica):** Uso de **Aprendizado de Máquina (K-Means)** para dividir os pedidos entre os entregadores disponíveis, garantindo que cada um atue em uma zona geográfica específica.
-- **Etapa 2 (Tática):** Uso de **Algoritmo de Busca (A\*)** para encontrar o menor caminho físico (ruas) entre a sequência de entregas.
+- **Etapa 1 (Estratégica):** Uso de **Aprendizado de Máquina (K-Means)** para dividir os pedidos entre os entregadores disponíveis, garantindo que cada um atue em uma zona geográfica específica, minimizando a variância.
+- **Etapa 2 (Tática):** Uso de **Algoritmo de Busca (A\*)** para encontrar o menor caminho físico (ruas) entre a sequência de entregas. Utiliza a heurística de Distância Euclidiana, sendo mais eficiente que o Dijkstra por ser "guiado" ao alvo.
 
-## 3. Algoritmos Utilizados
+---
 
-- **K-Means (Clustering):** Algoritmo não supervisionado que agrupa coordenadas geográficas das entregas em $K$ clusters (onde $K$ é o número de entregadores). Minimiza a variância dentro de cada cluster.
-- **A\* (A-Star Search):** Algoritmo de busca informada. Utiliza a função de custo $f(n) = g(n) + h(n)$, onde $g(n)$ é o custo real do início até o nó $n$, e $h(n)$ é a heurística (Distância Euclidiana) estimada até o destino. É mais eficiente que o Dijkstra por ser "guiado" ao alvo.
+## 3. Atendimento aos Requisitos do Projeto
 
-## 4. Estrutura do Projeto
+###  3.1. Organização e Estrutura do Código (`/src`, `/data`, `/docs`)
+O projeto adota a seguinte estrutura de pastas recomendada para ambientes de produção:
+* `/src`: Contém o script `main.py` com a lógica central.
+* `/capturas`: Contém os artefatos visuais do algoritmo.
+```
 
-- `/src`: Contém o código fonte `main.py`.
-- **Grafo:** Gerado sinteticamente usando `NetworkX` para simular uma malha urbana com 60 nós e conectividade baseada em proximidade.
+###  3.3. Outputs Relevantes
 
-## 5. Resultados e Análise
+A aplicação da Inteligência Artificial resultou na redução de percurso e em um balanceamento de carga perfeito (4 entregas justas para cada motorista).
 
-A aplicação combinada de K-Means e A\* resultou em:
+**Output de Console (Logs):**
 
-- **Balanceamento de Carga:** As entregas foram distribuídas equitativamente entre os motoristas.
-- **Redução de Percurso:** O agrupamento prévio impede que dois motoristas cruzem a cidade para locais vizinhos.
-- **Visualização:** O gráfico gerado (ver output) demonstra rotas claras e sem sobreposições desnecessárias.
+```text
+Iniciando Sistema Sabor Express AI...
+ Locais de Entrega: [43 38 52 49 33 13 42 16 35 15 54  2]
 
-**Limitações:** O modelo atual assume trânsito estático (pesos fixos).
-**Melhoria Futura:** Integrar API de trânsito em tempo real (como Google Maps API) para pesos dinâmicos nas arestas.
+ Agrupamento (Clusters):
+  Motorista 1: 4 entregas -> Nós [49, 13, 16, 54]
+  Motorista 2: 4 entregas -> Nós [43, 38, 33, 42]
+  Motorista 3: 4 entregas -> Nós [52, 35, 15, 2]
 
-## Como Executar
+Otimização Concluída. Mapa gerado.
 
-1. Instale as dependências: `pip install networkx matplotlib scikit-learn numpy`
-2. Execute: `python main.py`
+```
+
+**Output Gráfico (Rotas):** *(Imagem de exemplo gerada pela execução contida na pasta `/docs`)*
+
+###  3.4. Instruções Claras para Execução
+
+Para testar e rodar a simulação na sua máquina, siga o passo a passo:
+
+**1. Dependências Necessárias:** Certifique-se de ter o Python 3.8+ instalado e instale as bibliotecas abaixo via terminal:
+
+```bash
+pip install networkx matplotlib scikit-learn numpy scipy
+
+```
+
+**2. Executando o Projeto:** No seu terminal, clone o projeto (ou extraia os arquivos) e execute o script:
+
+```bash
+# Navegue até a pasta do projeto
+cd src
+
+# Execute o arquivo principal
+python main.py
+
+```
+
+**3. Visualização:** O script irá imprimir o agrupamento no terminal e, logo em seguida, abrirá uma janela do `matplotlib` renderizando o grafo visualmente com as rotas dos 3 entregadores marcadas por cores diferentes.
+
+---
+
+
+```
+
+```
