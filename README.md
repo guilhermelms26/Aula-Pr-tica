@@ -30,11 +30,11 @@ O projeto adota a seguinte estrutura de pastas recomendada para ambientes de pro
 * `/capturas`: Contém os artefatos visuais do algoritmo.
 ```
 
-###  3.3. Outputs Relevantes
+ 3.3. Outputs Relevantes
 A aplicação da Inteligência Artificial resultou na redução de percurso e em um balanceamento de carga (entregas justas para cada motorista baseadas em sua zona geográfica).
 
-**Output de Console (Logs de Execução):**
-```text
+Output de Console (Logs de Execução):
+
 Iniciando Sistema Sabor Express AI...
  Locais de Entrega: [43 38 52 49 33 13 42 16 35 15 54  2]
 
@@ -75,4 +75,5 @@ python main.py
 ---
 
 ```
+
 
